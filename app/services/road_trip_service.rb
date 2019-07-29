@@ -7,13 +7,13 @@ class RoadTripService
   def get_time 
     get_results[:routes].first[:legs].first
   end
-
-  private 
-
+  
   def get_results
     response = conn.get
     JSON.parse(response.body, symbolize_names: true)
   end
+
+  private 
 
   def conn 
     Faraday.new('https://maps.googleapis.com/maps/api/directions/json') do |f|
