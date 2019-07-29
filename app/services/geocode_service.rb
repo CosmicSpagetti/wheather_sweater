@@ -3,8 +3,20 @@ class GeocodeService
     @location = location 
   end
 
+  def lat_lng
+    get_results[:results][0][:geometry][:location]
+  end
 
   def get_results
-    Faraday. 
+    response = conn.get
+    JSON.parse(response.body, symbolize_names: true)
+  end
+
+  def conn 
+    Faraday.new('https://maps.googleapis.com/maps/api/geocode/json') do |f|
+      f.params['key'] = ENV['GEOCODE_API_KEY']
+      f.params['address'] = @location 
+      f.adapter Faraday.default_adapter
+    end
   end
 end
