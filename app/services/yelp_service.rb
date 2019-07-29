@@ -5,6 +5,13 @@ class YelpService
     @food = food
   end
 
+  def get_3_restaurants 
+    response = conn.get do |f|
+      f.params['limit'] = 3
+    end
+    JSON.parse(response.body, symbolize_names: true)
+  end
+
   def get_results
     response = conn.get
     JSON.parse(response.body, symbolize_names: true)
