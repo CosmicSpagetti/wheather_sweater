@@ -5,9 +5,9 @@ class YelpService
     @food = food
   end
 
-  def get_3_restaurants 
+  def get_restaurants_by_count(count)
     response = conn.get do |f|
-      f.params['limit'] = 3
+      f.params['limit'] = count
     end
     JSON.parse(response.body, symbolize_names: true)
   end
