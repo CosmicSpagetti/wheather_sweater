@@ -17,6 +17,7 @@ class YelpService
       f.params['location'] = @location
       f.params['open_at'] = @open_at
       f.params['term'] = @food
+      f.authorization :Bearer, ENV['YELP_API_KEY']
       f.adapter Faraday.default_adapter
     end
   end  
