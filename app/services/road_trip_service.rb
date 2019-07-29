@@ -5,7 +5,7 @@ class RoadTripService
   end
 
   def get_time 
-    binding.pry
+    get_results[:routes].first[:legs].first
   end
 
   private 
