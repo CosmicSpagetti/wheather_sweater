@@ -1,9 +1,8 @@
-class ForcastService 
+class ForecastService 
   def initialize(location_params) 
     @lat = location_params[:lat]
     @lng =  location_params[:lng]
   end
-  
   
   def get_forecast_results
     response = conn.get
