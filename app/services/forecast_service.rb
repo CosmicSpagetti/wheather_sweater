@@ -5,13 +5,15 @@ class ForcastService
   end
   
   
-  def get_results
-    
+  def get_forecast_results
+    response = conn.get
+    JSON.parse(response.body, symbolize_names: true)
   end
+
   private
 
   def conn
-    Farady.new('https://api.darksky.net/forecast/') do |f|
+    Faraday.new("https://api.darksky.net/forecast/#{ENV['DARKSKY_API_KEY']}/#{@lat},#{@lng}") do |f|
       f.params['exclude'] = 'minutely,alerts,flags' 
       f.adapter Faraday.default_adapter
     end
