@@ -18,6 +18,7 @@ gem 'puma', '~> 3.11'
 gem 'figaro'
 gem 'faraday'
 gem 'fast_jsonapi'
+gem 'solargraph'
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 

@@ -3,10 +3,6 @@ class GeocodeService
     @location = location 
   end
 
-  def lat_lng
-    get_results[:results][0][:geometry][:location]
-  end
-
   def get_results
     response = conn.get
     JSON.parse(response.body, symbolize_names: true)
