@@ -16,5 +16,6 @@ describe 'User creation' do
 
     expect(JSON.parse(response.body)).to have_key('api_key')
     expect(JSON.parse(response.body)['api_key']).to be_a String
+    expect(User.last.email).to eq("whatever@example.com")
   end
 end
