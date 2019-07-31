@@ -6,6 +6,7 @@ Rails.application.routes.draw do
       get 'munchies', to: 'munchies#index'
       get 'backgrounds', to: 'background_photo#show'
       post 'users', to: 'users#create'
+      post 'sessions', to: 'sessions#create'
     end
   end
 end
