@@ -14,13 +14,15 @@ class Forecast
   end
 
   def current_weather
-    {time: Time.at(@json[:currently][:time]),
+    {
+     time: Time.at(@json[:currently][:time]),
      summary: @json[:currently][:summary],
      temperature: @json[:currently][:temperature],
      feels_like: @json[:currently][:apparentTemperature],
      precipitation: @json[:currently][:precipProbability],
      humidity: @json[:currently][:humidity],
      visibility: @json[:currently][:visibility],
+     index: @json[:currently][:uvIndex],
      icon: @json[:currently][:icon],
      high: @json[:daily][:data].first[:temperatureHigh].round,
      low: @json[:daily][:data].first[:temperatureLow].round
