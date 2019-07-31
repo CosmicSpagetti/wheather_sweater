@@ -4,7 +4,7 @@ class ForecastService
     @lng =  location_params[:lng]
   end
   
-  def get_forecast_results
+  def get_results
     response = conn.get
     JSON.parse(response.body, symbolize_names: true)
   end

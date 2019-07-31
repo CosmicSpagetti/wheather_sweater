@@ -3,8 +3,9 @@ class GeocodeService
     @location = location 
   end
 
-  def lat_lng
-    get_results[:results][0][:geometry][:location]
+  def location
+    results ||= get_results
+    results[:results][0][:geometry][:location].merge!( location: results[:results][0][:formatted_address])
   end
 
   def get_results
