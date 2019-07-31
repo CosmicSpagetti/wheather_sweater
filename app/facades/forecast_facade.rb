@@ -15,7 +15,7 @@ class ForecastFacade
   private
 
   def geocode_service
-    @_geocode_service ||= GeocodeService.new(@location).get_results 
+    @_geocode_service ||= GoogleService.get_geocode(@location)
   end
 
   def forcast_service
