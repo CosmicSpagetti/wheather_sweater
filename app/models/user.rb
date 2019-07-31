@@ -6,6 +6,6 @@ class User < ApplicationRecord
   validates :email, uniqueness: true
 
   def create_api_key
-    SecureRandom.uuid
+    self.api_key = SecureRandom.uuid
   end
 end

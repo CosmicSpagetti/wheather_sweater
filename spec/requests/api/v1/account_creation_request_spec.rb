@@ -7,9 +7,14 @@ describe 'User creation' do
               "password": "password",
               "password_confirmation": "password"
     }.to_json
-    post '/api/v1/users', params: params
-    binding.pry
-    response = JSON.parse(response.body)
+    headers = {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      }
+    post '/api/v1/users', params: params, headers: headers
 
+
+    expect(JSON.parse(response.body)).to have_key('api_key')
+    expect(JSON.parse(response.body)['api_key']).to be_a String
   end
 end
