@@ -3,11 +3,6 @@ class GeocodeService
     @location = location 
   end
 
-  def location
-    results ||= get_results
-    results[:results][0][:geometry][:location].merge!( location: results[:results][0][:formatted_address])
-  end
-
   def get_results
     response = conn.get
     JSON.parse(response.body, symbolize_names: true)
