@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe "Endpoint" do
-  it 'should return background photo' do 
+  it 'should return background photo', :vcr do 
     get '/api/v1/backgrounds?location=denver,co'
 
     expect(response).to be_successful

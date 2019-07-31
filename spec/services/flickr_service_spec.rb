@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe 'Flickr service' do 
+describe 'Flickr service', :vcr do 
   it 'should return photos with url' do 
     service = FlickrService.new.get_background_photo("denver")
 

@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe 'Can send request to login' do 
+describe 'Can send request to login', :vcr do 
   it 'should log user in and their api key' do 
     User.create!(
       "email": "billy@example.com",

@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe "Geocoding and forecast api" do
+describe "Geocoding and forecast api", :vcr do
   it "Returns info on current weather" do
 
     get '/api/v1/forecast?location=denver,co'

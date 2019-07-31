@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe 'Forecast service returns' do 
+describe 'Forecast service returns', :vcr do 
   it 'should return json of forecasted weather for location' do 
     service = ForecastService.new({:lat=>39.7392358, :lng=>-104.990251})
 

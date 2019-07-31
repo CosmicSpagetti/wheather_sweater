@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe 'Road Trip' do 
+describe 'Road Trip', :vcr do 
   it 'should return weather at place of arrival and trip duration' do 
     User.create!(
       "email": "billy@example.com",
@@ -29,7 +29,7 @@ describe 'Road Trip' do
     expect(result[:data][:attributes][:weather]).to have_key(:summary)
   end
 
-  it 'should return status 401 if wrong api key sent' do 
+  it 'should return status 401 if wrong api key sent', :vcr do 
     User.create!(
       "email": "billy@example.com",
       "password": "blah"

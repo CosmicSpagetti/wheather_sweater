@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe 'Roadtrip service' do 
+describe 'Roadtrip service',:vcr do 
   it "should return road trip info like duration" do 
     location = GoogleService.get_directions('denver', 'pueblo')
 
@@ -14,7 +14,7 @@ describe 'Roadtrip service' do
     expect(location[:routes].first[:legs].first[:duration][:text]).to eq("1 hour 47 mins")
   end
 end
-describe 'Geocode gets coordinates from location' do 
+describe 'Geocode gets coordinates from location', :vcr do 
   it "should return lat and long" do 
     location = GoogleService.get_geocode("denver, co")[:results]
 

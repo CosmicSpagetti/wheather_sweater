@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe 'User creation' do 
+describe 'User creation', :vcr do 
   it 'should create a user and return api key' do 
     params = {
               "email": "whatever@example.com",

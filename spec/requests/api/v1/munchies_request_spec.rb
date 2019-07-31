@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe 'Munchies request spec' do 
+describe 'Munchies request spec', :vcr do 
   it 'should return restaurants' do 
 
     get '/api/v1/munchies?start=denver,co&end=pueblo,co&food=chinese'

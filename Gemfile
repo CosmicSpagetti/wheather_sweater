@@ -20,6 +20,8 @@ gem 'faraday'
 gem 'fast_jsonapi'
 gem 'solargraph'
 gem 'bcrypt'
+gem 'vcr'
+gem 'webmock'
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 
