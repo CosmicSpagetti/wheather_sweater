@@ -18,4 +18,18 @@ describe 'User creation' do
     expect(JSON.parse(response.body)['api_key']).to be_a String
     expect(User.last.email).to eq("whatever@example.com")
   end
+
+  it 'should return error and status code if no email sent' do 
+    params = {
+              "password": "password",
+              "password_confirmation": "password"
+    }.to_json
+    headers = {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      }
+    post '/api/v1/users', params: params, headers: headers
+
+    expect(response.status).to eq(409)
+  end
 end
